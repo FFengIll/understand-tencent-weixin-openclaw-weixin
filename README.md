@@ -26,7 +26,9 @@
 ```
 
 > 补充
+> 
 > export const DEFAULT_BASE_URL = "https://ilinkai.weixin.qq.com";
+> 
 > export const CDN_BASE_URL = "https://novac2c.cdn.weixin.qq.com/c2c";
 
 ### 1.2 技术栈
