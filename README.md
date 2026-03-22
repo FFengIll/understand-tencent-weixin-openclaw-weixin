@@ -25,16 +25,20 @@
 └─────────────────────────────────────────────────────────────────┘
 ```
 
+> 补充
+> export const DEFAULT_BASE_URL = "https://ilinkai.weixin.qq.com";
+> export const CDN_BASE_URL = "https://novac2c.cdn.weixin.qq.com/c2c";
+
 ### 1.2 技术栈
 
-| 层级 | 技术 |
-|------|------|
-| 运行时 | Node.js |
-| 模块系统 | ES Modules |
-| 插件接口 | OpenClaw Plugin SDK |
-| 通信协议 | HTTP POST + JSON |
-| 加密算法 | AES-128-ECB |
-| 同步机制 | 长轮询 (Long Polling) |
+| 层级     | 技术                        |
+| -------- | --------------------------- |
+| 运行时   | Node.js                     |
+| 模块系统 | ES Modules                  |
+| 插件接口 | OpenClaw Plugin SDK         |
+| 通信协议 | HTTP POST + JSON            |
+| 加密算法 | AES-128-ECB                 |
+| 同步机制 | 长轮询 (Long Polling)       |
 | 认证方式 | Bearer Token + X-WECHAT-UIN |
 
 ---
@@ -381,13 +385,13 @@ async function apiFetch(params) {
 
 ### 6.2 核心 API 端点
 
-| 端点 | 超时 | 用途 |
-|------|------|------|
-| `ilink/bot/getupdates` | 35s | 长轮询获取消息 |
-| `ilink/bot/sendmessage` | 15s | 发送消息 |
-| `ilink/bot/getuploadurl` | 15s | 获取上传 URL |
-| `ilink/bot/getconfig` | 10s | 获取配置 |
-| `ilink/bot/sendtyping` | 10s | 发送输入状态 |
+| 端点                     | 超时 | 用途           |
+| ------------------------ | ---- | -------------- |
+| `ilink/bot/getupdates`   | 35s  | 长轮询获取消息 |
+| `ilink/bot/sendmessage`  | 15s  | 发送消息       |
+| `ilink/bot/getuploadurl` | 15s  | 获取上传 URL   |
+| `ilink/bot/getconfig`    | 10s  | 获取配置       |
+| `ilink/bot/sendtyping`   | 10s  | 发送输入状态   |
 
 ---
 
@@ -1001,13 +1005,13 @@ class WeixinConfigManager {
 
 ### 18.1 架构优势
 
-| 特性 | 实现方式 |
-|------|----------|
-| 可靠性 | 长轮询 + 游标持久化 + 断线重连 |
-| 可扩展性 | 多账号支持 + 独立监控循环 |
-| 安全性 | Token 认证 + AES 加密 + 会话保护 |
-| 可维护性 | 模块化设计 + 清晰的类型定义 |
-| 可观测性 | 结构化日志 + 状态上报 |
+| 特性     | 实现方式                         |
+| -------- | -------------------------------- |
+| 可靠性   | 长轮询 + 游标持久化 + 断线重连   |
+| 可扩展性 | 多账号支持 + 独立监控循环        |
+| 安全性   | Token 认证 + AES 加密 + 会话保护 |
+| 可维护性 | 模块化设计 + 清晰的类型定义      |
+| 可观测性 | 结构化日志 + 状态上报            |
 
 ### 18.2 关键技术点
 
@@ -1030,13 +1034,13 @@ class WeixinConfigManager {
 
 ## 附录：文件索引
 
-| 文件 | 行数 | 功能 |
-|------|------|------|
-| [index.ts](package/index.ts) | 28 | 插件入口 |
-| [channel.ts](package/src/channel.ts) | 381 | 核心渠道实现 |
-| [api/types.ts](package/src/api/types.ts) | 223 | 类型定义 |
-| [api/api.ts](package/src/api/api.ts) | 241 | HTTP 通信 |
-| [auth/login-qr.ts](package/src/auth/login-qr.ts) | 334 | 二维码登录 |
-| [monitor/monitor.ts](package/src/monitor/monitor.ts) | 222 | 长轮询循环 |
-| [messaging/inbound.ts](package/src/messaging/inbound.ts) | 172 | 入站消息 |
-| [cdn/aes-ecb.ts](package/src/cdn/aes-ecb.ts) | 22 | 加密解密 |
+| 文件                                                     | 行数 | 功能         |
+| -------------------------------------------------------- | ---- | ------------ |
+| [index.ts](package/index.ts)                             | 28   | 插件入口     |
+| [channel.ts](package/src/channel.ts)                     | 381  | 核心渠道实现 |
+| [api/types.ts](package/src/api/types.ts)                 | 223  | 类型定义     |
+| [api/api.ts](package/src/api/api.ts)                     | 241  | HTTP 通信    |
+| [auth/login-qr.ts](package/src/auth/login-qr.ts)         | 334  | 二维码登录   |
+| [monitor/monitor.ts](package/src/monitor/monitor.ts)     | 222  | 长轮询循环   |
+| [messaging/inbound.ts](package/src/messaging/inbound.ts) | 172  | 入站消息     |
+| [cdn/aes-ecb.ts](package/src/cdn/aes-ecb.ts)             | 22   | 加密解密     |
